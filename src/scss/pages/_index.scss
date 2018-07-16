@@ -1,0 +1,250 @@
+.page__title {
+	font-size: 36px;
+	font-family: $exo;
+	color: #fff;
+	text-align: center;
+    text-shadow: 0px 1px 1px #000;
+	margin-bottom: 24px;
+}
+.page-block {
+	padding: 40px 0;
+}
+
+$b: #1698d9;
+$p: #d91667;
+$g: #b3b3b3;
+
+.card-checkbox {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	z-index: -1;
+}
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: top;
+	margin-top: -40px;
+
+	@include lg {
+		text-align: center;
+		display: block;
+		margin-left: -30px;
+	}
+}
+.card {
+	color: #000000;
+	overflow: hidden;
+	display: block;
+	&-wrap {
+		width: 320px;
+		margin-top: 40px;
+		@include lg {
+			margin-left: 30px;
+		display: inline-block;
+		vertical-align: top;
+		}
+	}
+	&__bg {
+		background-color: #fff;
+		height: calc(100% - 45px);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		border-left: 4px solid $b;
+		border-right: 4px solid $b;
+		border-bottom: 4px solid $b;
+		background-color: #fff;
+		border-radius: 0 0 13px 13px;
+		width: 100%;
+		z-index: 0;
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			width: 100%;
+			border-bottom: 41px solid #fff;
+			border-left: 41px solid transparent;
+			z-index: 1;
+			border-radius: 0 11px 0 0;
+		}
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100%;
+		    border-bottom: 45px solid #1698d9;
+		    border-left: 45px solid transparent;
+		    z-index: 0;
+		    bottom: calc(100% + 0px);
+		    left: -6px;
+		    width: calc(100% + 10px);
+		    border-radius: 0 13px 0 0;
+		}
+	}
+	&__content {
+		padding: 20px 47px 17px; 
+		z-index: 3;
+	}
+	&__before-title {
+		color: #666666;
+		font-size: 16px;
+		margin-bottom: 6px;
+	}
+	&__after-text {
+		font-size: 13px;
+		color: #fff;
+		text-align: center;
+		margin-top: 14px;
+		a {
+			display: inline-block;
+			color: $b;
+			&:after {
+				content: '';
+				display: block;
+				border-bottom: 1px dashed;
+				width: 85%;
+				transition: .3s;
+			}
+			&:hover {
+				&:after {
+					border-color: transparent;
+				}
+			}
+		}
+	}
+	&__title {
+		font-weight: 600;
+		color: #000;
+		font-size: 48px;
+		margin-bottom: -1px;
+	}
+	&__taste {
+		font-weight: 600;
+		color: #000;
+		font-size: 24px;
+		margin-bottom: 14px;
+	}
+	&__action {
+		font-size: 14px;
+		color: #666666;
+		&-portion {
+			font-weight: 600;
+		}
+	}
+	&__img {
+		width: calc(100% - 8px);
+	    margin: 0 auto;
+	    overflow: hidden;
+	    border-radius: 0 0 0 13px;
+        max-height: 268px;
+   		margin-bottom: 4px;
+	    img {
+	    	left: -4px;
+	    }
+	}
+	&__weight {
+		width: 81px;
+		height: 81px;
+		border-radius: 50%;
+		background-color: $b;
+		font-size: 21px;
+		color: #fff;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		right: 15px;
+		bottom: 16px;
+		flex-direction: column;
+	    line-height: 1;
+   		padding-top: 4px;
+		&-count {
+			font-size: 42px;
+			width: 100%;
+			text-align: center;
+		}
+	}
+	&:hover {
+		.card__bg {
+			border-color: #2ea8e6
+		}
+		.card__bg:after {
+			border-bottom-color: #2ea8e6;
+		}
+		.card__weight {
+			background-color: #2ea8e6;
+		}
+	}
+	&.clicked {
+		.card__bg {
+			border-color: $b;
+		}
+		.card__bg:after {
+			border-bottom-color: $b;
+		}
+		.card__weight {
+			background-color: $b;
+		}
+	}
+	
+	.card-checkbox:checked + & {
+		.card__bg {
+			border-color: $p;
+		}
+		.card__bg:after {
+			border-bottom-color: $p;
+		}
+		.card__weight {
+			background-color: $p;
+		}
+
+	
+		&:hover {
+			.card__bg {
+				border-color: #e62e7a;
+			}
+			.card__bg:after {
+				border-bottom-color: #e62e7a;
+			}
+			.card__weight {
+				background-color: #e62e7a;
+			}	
+		}
+
+	}
+	.card-checkbox:checked + &.clicked{
+		.card__bg {
+			border-color: $p;
+		}
+		.card__bg:after {
+			border-bottom-color: $p;
+		}
+		.card__weight {
+			background-color: $p;
+		}
+	}
+	&.card_disabled {
+		.card__bg {
+			border-color: $g;
+		}
+		.card__bg:after {
+			border-bottom-color: $g;
+		}
+		.card__weight {
+			background-color: $g;
+		}
+		.card__content,.card__img {
+			opacity: 0.5;
+		}
+		+ .card__after-text {
+			color: #ffff66;
+		}
+	}
+}

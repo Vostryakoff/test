@@ -1,0 +1,30 @@
+
+body {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+    font-family: 'Trebuchet MS';
+}
+
+$exo: 'Exo 2.0', sens-serif;
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: 600 !important;
+}
+.text-semibold {
+    font-weight: 500 !important;
+}
